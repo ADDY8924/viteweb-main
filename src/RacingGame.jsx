@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './RacingGame.css';
 
 const LANES = 15;
-const GAME_WIDTH = 800;
-const CAR_WIDTH = 50;
-const OBSTACLE_WIDTH = 50;
+const GAME_WIDTH = 500;
+const CAR_WIDTH = 40;
+const OBSTACLE_WIDTH = 40;
 const OBSTACLE_HEIGHT = 50;
 
 const RacingGame = () => {
