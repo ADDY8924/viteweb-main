@@ -5,6 +5,7 @@ import Home from "./Home";
 import About from "./About";
 import Flag from "./Flag";
 import RacingGame from "./RacingGame";
+import LottoGenerator from "./LottoGenerator";
 
 function App() {
   
@@ -17,6 +18,7 @@ function App() {
             <Route path="About" element={<About />} />
             <Route path="Flag" element={<Flag />} />
             <Route path="racing" element={<RacingGame />} />
+            <Route path="lotto" element={<LottoGenerator />} />
           </Route>
         </Routes>
       </BrowserRouter>
