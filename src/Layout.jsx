@@ -13,6 +13,7 @@ function Layout() {
                 <li><Link to="Flag">국기</Link></li>
                 <li><Link to="/racing">레이싱 게임</Link></li>
                 <li><Link to="/lotto">로또 생성기</Link></li>
+                <li><Link to="/introduction">자기소개</Link></li>
             </ul>
             <div>#</div>
         </nav>

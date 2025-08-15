@@ -30,33 +30,15 @@ const RacingGame = () => {
     };
   }, [handleKeyDown]);
 
-  const [gameOver, setGameOver] = useState(false);
-  const [gameSpeed, setGameSpeed] = useState(8);
   const [lastSpawnTimes, setLastSpawnTimes] = useState(() => new Array(LANES).fill(0));
   const [recentSpawns, setRecentSpawns] = useState([]);
-
-  const handleKeyDown = useCallback((e) => {
-    if (gameOver) return;
-    if (e.key === 'ArrowLeft') {
-      setCarLane(lane => Math.max(0, lane - 1));
-    } else if (e.key === 'ArrowRight') {
-      setCarLane(lane => Math.min(LANES - 1, lane + 1));
-    }
-  }, [gameOver]);
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [handleKeyDown]);
 
   useEffect(() => {
     if (gameOver) return;
 
     const gameInterval = setInterval(() => {
       // --- Obstacle Spawning Logic ---
-      const spawnProbability = 0.2;
+      const spawnProbability = 0.8;
       if (Math.random() < spawnProbability) {
         const now = Date.now();
         const newLane = Math.floor(Math.random() * LANES);
@@ -69,11 +51,11 @@ const RacingGame = () => {
         if (recentSpawns.length === 2) {
           const [lastSpawn, prevSpawn] = recentSpawns;
           const isAdjacent = Math.abs(lastSpawn.lane - prevSpawn.lane) === 1;
-          const isRecent = lastSpawn.time - prevSpawn.time < 1000;
+          const isRecent = lastSpawn.time - prevSpawn.time < 1500; // 1.5 second
           if (isAdjacent && isRecent) {
             const blockedLane = prevSpawn.lane + (prevSpawn.lane - lastSpawn.lane);
             if (newLane === blockedLane) {
-              if (now - lastSpawn.time < 1000) {
+              if (now - lastSpawn.time < 1500) {
                 isAdjacentCooldownActive = true;
               }
             }
@@ -133,7 +115,7 @@ const RacingGame = () => {
           setGameSpeed(speed => speed + 1);
         }
       }
-    }, 100);
+    }, 20);
 
     return () => clearInterval(gameInterval);
   }, [carLane, gameOver, gameSpeed, lastSpawnTimes, recentSpawns, score]);
