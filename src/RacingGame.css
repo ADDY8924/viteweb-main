@@ -1,0 +1,67 @@
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.game-board {
+    position: relative;
+    height: 500px;
+    background-color: #333;
+    border: 5px solid #555;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.car {
+    position: absolute;
+    bottom: 10px;
+    width: 50px;
+    height: 80px;
+    background-color: red;
+    transition: left 0.1s linear;
+    background-image: url('/img/0.png'); /* Your car image */
+    background-size: cover;
+}
+
+.obstacle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    background-image: url('/img/1.png'); /* Your obstacle image */
+    background-size: cover;
+}
+
+.game-over {
+    color: white;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.game-over h2 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.game-over button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.score {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.instructions {
+    margin-top: 20px;
+    color: #555;
+}

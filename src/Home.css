@@ -1,0 +1,40 @@
+.grd {
+    display: grid;
+    place-items: center;
+
+    height: calc(100vh - 84px);
+    background: linear-gradient(-45deg, rgb(138, 98, 23), rgb(169, 133, 65), rgb(246, 213, 152));
+    background-size: 400% 400%;
+    animation: colorchg 3s ease infinite;
+}
+@keyframes colorchg {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+.typing {
+    width: 32ch;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 4rem;
+    font-family: 'Nanum Pen Script', cursive;
+    animation: keytyping 3s steps(50), blink .5s step-end infinite alternate;
+}
+@keyframes keytyping {
+    from {
+        width: 0;
+    }
+}
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
